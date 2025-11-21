@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jzai's Programs</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: rgb(135, 75, 187); /* background */
+      color: rgb(0, 0, 0); /* text color so it shows up on dark background */
+      margin: 0;
+      padding: 20px;
+    }
+
+h2 {
+  font-size: 2em;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+p {
+  font-size: 1.5em;
+  color: #000000;
+  text-shadow: 0 0 10px #cf0c0c, 0 0 20px #ff00ff;
+}
+a[href="https://jtzai.github.io/html/devteam.html"] {
+  color: #2ecafa;
+  font-weight: bold;
+}
+
+a[href="https://jtzai.github.io/html/devteam.html"]:hover {
+  color: #7807db;
+}
+input[type="number"] {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  font-size: 16px;
+}
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #4eaee2, #a302e8);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+
+  </style>
+</head>
+<body>
+<h1>BMI Calculator </h1>
+
+<h2>Check Your BMI</h2>
+<input type = "number" id="inch" placeholder = "Enter your height in inches">
+<input type = "number" id="lb" placeholder = "Enter your weight in pounds">
+<button onclick="calculateBMI()">Calculate BMI</button>
+<p>Result: <span id="result1"></span></p>
+
+<p> <a href="https://jtzai.github.io/html/devteam.html">-    About Me</a> <br>
+
+<script>
+	function calculateBMI() {
+	let inch = parseFloat(document.getElementById('inch').value);
+	let lb = parseFloat(document.getElementById('lb').value);
+	let result = document.getElementById('result1');
+	
+	if(!inch || !lb || inch <= 0 || lb <= 0){
+	result.textContent = "Enter Valid Numbers.";
+	return;
+	}
+	
+	let BMI = (lb * 703) / (inch * inch);
+	let category = " ";
+	
+	
+	if (BMI < 18.5) {
+	category = "Underweight";
+	} else if (BMI < 24.9) {
+	category = "Normal Weight";
+	} else if (BMI < 29.9) {
+	category = "Overweight";3
+	} else {
+	category = "Go on a diet :D";
+	}
+	
+	result.textContent = `Your BMI is ${BMI.toFixed(2)} (${category})`;
+	
+}
+	
+	
+
+	
+</script>
+</body>
+</html>
